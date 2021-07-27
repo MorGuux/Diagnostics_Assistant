@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#drag" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #545252;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainUI.MainController">
+   <children>
+      <ImageView fx:id="logo" fitHeight="58.0" fitWidth="65.0" layoutX="25.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="107.0" layoutY="36.0" style="-fx-font-weight: bold;" text="Diagnostic Assistant" textFill="#dadada">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="version" layoutX="107.0" layoutY="65.0" style="-fx-text-fill: #b9b9b9;" text="v1.0.0" textFill="WHITE" />
+      <Label fx:id="connected" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="889.0" layoutY="42.0" prefHeight="17.0" prefWidth="83.0" style="-fx-text-fill: #b9b9b9;" text="Connected" textFill="WHITE" />
+      <Label fx:id="specs" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="826.0" layoutY="60.0" prefHeight="17.0" prefWidth="146.0" style="-fx-text-fill: #b9b9b9;" text="Computer Specifications" textFill="WHITE" />
+      <JFXButton layoutX="878.0" layoutY="667.0" style="-fx-text-fill: #b9b9b9;" text="Check for updates" underline="true" />
+      <AnchorPane prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton layoutX="966.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#exit" prefHeight="20.0" prefWidth="30.0" style="-fx-graphic: url('@../../../images/email.png'); -fx-background-image: url('@../../../images/email.png');">
+               <graphic>
+                  <ImageView fx:id="closeIcon" fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="932.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#minimize" prefHeight="20.0" prefWidth="30.0" style="-fx-graphic: url('@../../../images/email.png'); -fx-background-image: url('@../../../images/email.png');">
+               <graphic>
+                  <ImageView fx:id="minimizeIcon" fitHeight="14.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/minimize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <ImageView fx:id="minimizedLogo" fitHeight="22.0" fitWidth="20.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="36.0" layoutY="6.0" text="Diagnose your issues " />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="91.0" prefHeight="610.0" prefWidth="107.0" style="-fx-background-color: #726d6d;">
+         <children>
+            <ImageView fx:id="diagnosticsIcon" fitHeight="52.0" fitWidth="57.0" layoutX="28.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/diagnostics.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="programmingIcon" fitHeight="44.0" fitWidth="44.0" layoutX="34.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/programming.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="connectionsIcon" fitHeight="44.0" fitWidth="37.0" layoutX="37.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/connections.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="settingsIcon" fitHeight="44.0" fitWidth="44.0" layoutX="33.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/settings.png" />
+               </image>
+            </ImageView>
+            <JFXButton alignment="CENTER" prefHeight="82.0" prefWidth="107.0" style="-fx-border-color: grey; -fx-border-width: 1 0 1 0;" text="&#10;&#10;&#10;Diagnostics&#10;" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutY="81.0" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Programming&#10;" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutY="162.0" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Connections&#10;" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="1.0" layoutY="243.0" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Settings&#10;" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+   </children>
+</AnchorPane>
