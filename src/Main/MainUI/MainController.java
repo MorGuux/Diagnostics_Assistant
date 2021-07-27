@@ -27,18 +27,20 @@ public class MainController  implements Initializable {
     @FXML private ImageView settingsIcon;
     @FXML private ImageView logo;
     @FXML private ImageView minimizedLogo;
+    @FXML private ImageView maximiseIcon;
     @FXML private ImageView minimizeIcon;
     @FXML private ImageView closeIcon;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        logo.setImage(new Image(new File("images/logo.png").toURI().toString()));
-        minimizedLogo.setImage(new Image(new File("images/minimizedLogo.png").toURI().toString()));
+        logo.setImage(new Image(new File("images/logo_white.png").toURI().toString()));
+        minimizedLogo.setImage(new Image(new File("images/logo.png").toURI().toString()));
         diagnosticsIcon.setImage(new Image(new File("images/diagnostics.png").toURI().toString()));
         programmingIcon.setImage(new Image(new File("images/programming.png").toURI().toString()));
         connectionsIcon.setImage(new Image(new File("images/connections.png").toURI().toString()));
         settingsIcon.setImage(new Image(new File("images/settings.png").toURI().toString()));
         minimizeIcon.setImage(new Image(new File("images/minimize.png").toURI().toString()));
+        maximiseIcon.setImage(new Image(new File("images/maximise.png").toURI().toString()));
         closeIcon.setImage(new Image(new File("images/close.png").toURI().toString()));
     }
 
@@ -60,6 +62,10 @@ public class MainController  implements Initializable {
 
     public void drag() {
         Functions.dragWindow(window);
+    }
+
+    public void maximise() {
+        Functions.maximise(window);
     }
 
     public void minimize() {
