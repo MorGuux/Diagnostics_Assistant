@@ -61,7 +61,7 @@ public class MainController  implements Initializable {
     }
 
     public void drag() {
-        Functions.dragWindow(window);
+        //Functions.dragWindow(window);
     }
 
     public void maximise() {

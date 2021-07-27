@@ -19,6 +19,7 @@ public class Main extends Application {
 
         window.initStyle(StageStyle.UNDECORATED);
         window.setScene(new Scene(newWindow, 1000, 700));
+        ResizeHelper.addResizeListener(window);
         window.show();
     }
 

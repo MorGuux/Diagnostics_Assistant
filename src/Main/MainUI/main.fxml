@@ -21,7 +21,7 @@
       </Label>
       <Label fx:id="version" layoutX="107.0" layoutY="65.0" style="-fx-text-fill: #b9b9b9;" text="v1.0.0" textFill="WHITE" />
       <Label fx:id="connected" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="885.0" layoutY="52.0" prefHeight="17.0" prefWidth="99.0" style="-fx-text-fill: #b9b9b9;" text="Connection Status" textFill="WHITE" AnchorPane.rightAnchor="16.0" />
-      <JFXButton layoutX="878.0" layoutY="667.0" style="-fx-text-fill: #b9b9b9;" text="Check for updates" underline="true" />
+      <JFXButton layoutX="878.0" layoutY="667.0" style="-fx-text-fill: #b9b9b9;" text="Check for updates" underline="true" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0" />
       <AnchorPane prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton layoutX="966.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#exit" prefHeight="20.0" prefWidth="30.0" style="-fx-graphic: url('@../../../images/email.png'); -fx-background-image: url('@../../../images/email.png');" AnchorPane.rightAnchor="4.0">
@@ -105,7 +105,7 @@
       </AnchorPane>
       <AnchorPane fx:id="settings" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="91.0">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;">
+            <AnchorPane prefHeight="567.0" prefWidth="150.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton alignment="CENTER" prefHeight="44.0" prefWidth="148.0" style="-fx-border-color: #dadada; -fx-border-width: 1 0 1 0;" text="Option 1">
                      <font>
@@ -139,7 +139,7 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;">
+            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="10.0" text="Settings" />
                </children>
@@ -147,7 +147,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="connections" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="91.0">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;">
+            <AnchorPane prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton alignment="CENTER" prefHeight="44.0" prefWidth="148.0" style="-fx-border-color: #dadada; -fx-border-width: 1 0 1 0;" text="Option 1">
                      <font>
@@ -181,7 +181,7 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;">
+            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="10.0" text="Connections" />
                </children>
@@ -189,7 +189,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="programming" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="91.0">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;">
+            <AnchorPane prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton alignment="CENTER" prefHeight="44.0" prefWidth="148.0" style="-fx-border-color: #dadada; -fx-border-width: 1 0 1 0;" text="Option 1">
                      <font>
@@ -223,7 +223,7 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;">
+            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="10.0" text="Programming" />
                </children>
@@ -231,7 +231,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="diagnostics" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="91.0">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="567.0" prefWidth="122.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton alignment="CENTER" prefHeight="44.0" prefWidth="148.0" style="-fx-border-color: #dadada; -fx-border-width: 1 0 1 0;" text="Option 1">
                      <font>
@@ -265,7 +265,7 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="0.0">
+            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="10.0" text="Diagnostics" />
                </children>
