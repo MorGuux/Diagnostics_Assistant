@@ -20,7 +20,6 @@ public class MainController  implements Initializable {
     @FXML private AnchorPane settings;
     @FXML private Label version;
     @FXML private Label connected;
-    @FXML private Label specs;
     @FXML private ImageView diagnosticsIcon;
     @FXML private ImageView programmingIcon;
     @FXML private ImageView connectionsIcon;
@@ -33,6 +32,9 @@ public class MainController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        version.setText("v1.0.0");
+        connected.setText("Connected");
+
         logo.setImage(new Image(new File("images/logo_white.png").toURI().toString()));
         minimizedLogo.setImage(new Image(new File("images/logo.png").toURI().toString()));
         diagnosticsIcon.setImage(new Image(new File("images/diagnostics.png").toURI().toString()));
@@ -58,10 +60,6 @@ public class MainController  implements Initializable {
 
     public void openSettings() {
         settings.toFront();
-    }
-
-    public void drag() {
-        //Functions.dragWindow(window);
     }
 
     public void maximise() {
