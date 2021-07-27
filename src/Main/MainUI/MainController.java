@@ -33,7 +33,7 @@ public class MainController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logo.setImage(new Image(new File("images/logo.png").toURI().toString()));
-        minimizedLogo.setImage(new Image(new File("images/logo.png").toURI().toString()));
+        minimizedLogo.setImage(new Image(new File("images/minimizedLogo.png").toURI().toString()));
         diagnosticsIcon.setImage(new Image(new File("images/diagnostics.png").toURI().toString()));
         programmingIcon.setImage(new Image(new File("images/programming.png").toURI().toString()));
         connectionsIcon.setImage(new Image(new File("images/connections.png").toURI().toString()));
