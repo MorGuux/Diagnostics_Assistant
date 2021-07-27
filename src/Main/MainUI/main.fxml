@@ -73,31 +73,40 @@
                   <Image url="@../../../images/settings.png" />
                </image>
             </ImageView>
-            <JFXButton alignment="CENTER" prefHeight="82.0" prefWidth="107.0" style="-fx-border-color: grey; -fx-border-width: 1 0 1 0;" text="&#10;&#10;&#10;Diagnostics&#10;" textFill="WHITE">
+            <JFXButton alignment="CENTER" onAction="#openDiagnostics" prefHeight="82.0" prefWidth="107.0" style="-fx-border-color: grey; -fx-border-width: 1 0 1 0;" text="&#10;&#10;&#10;Diagnostics&#10;" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="CENTER" layoutY="81.0" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Programming&#10;" textFill="WHITE">
+            <JFXButton alignment="CENTER" layoutY="81.0" onAction="#openProgramming" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Programming&#10;" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="CENTER" layoutY="162.0" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Connections&#10;" textFill="WHITE">
+            <JFXButton alignment="CENTER" layoutY="162.0" onAction="#openConnections" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Connections&#10;" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="CENTER" layoutX="1.0" layoutY="243.0" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Settings&#10;" textFill="WHITE">
+            <JFXButton alignment="CENTER" layoutX="1.0" layoutY="243.0" onAction="#openSettings" prefHeight="82.0" prefWidth="107.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: grey;" text="&#10;&#10;&#10;Settings&#10;" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
-      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
-      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
-      <AnchorPane layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane fx:id="programming" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane fx:id="connections" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane fx:id="settings" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" />
+      <AnchorPane fx:id="diagnostics" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="148.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" />
+            <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;">
+               <children>
+                  <Label layoutX="14.0" layoutY="10.0" text="Diagnostics" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

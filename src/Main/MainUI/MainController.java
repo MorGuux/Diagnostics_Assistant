@@ -14,6 +14,10 @@ import javafx.scene.layout.AnchorPane;
 public class MainController  implements Initializable {
 
     @FXML private AnchorPane window;
+    @FXML private AnchorPane diagnostics;
+    @FXML private AnchorPane programming;
+    @FXML private AnchorPane connections;
+    @FXML private AnchorPane settings;
     @FXML private Label version;
     @FXML private Label connected;
     @FXML private Label specs;
@@ -36,6 +40,22 @@ public class MainController  implements Initializable {
         settingsIcon.setImage(new Image(new File("images/settings.png").toURI().toString()));
         minimizeIcon.setImage(new Image(new File("images/minimize.png").toURI().toString()));
         closeIcon.setImage(new Image(new File("images/close.png").toURI().toString()));
+    }
+
+    public void openDiagnostics() {
+        diagnostics.toFront();
+    }
+
+    public void openProgramming() {
+        programming.toFront();
+    }
+
+    public void openConnections() {
+        connections.toFront();
+    }
+
+    public void openSettings() {
+        settings.toFront();
     }
 
     public void drag() {
