@@ -6,8 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -20,6 +18,14 @@ public class Main extends Application {
         DatabaseManager.openConnection();
         ArrayList<DatabaseClasses.Guide> guides = DatabaseManager.getGuides();
 
+        assert guides != null;
+        for (DatabaseClasses.Guide guide : guides) {
+            System.out.print(guide.ID + ", ");
+            System.out.print(guide.Title + ", ");
+            System.out.print(guide.Description + ", ");
+            System.out.print(guide.Path + ", ");
+            System.out.print(guide.Type + "\n");
+        }
         //endregion
 
         launch(args);

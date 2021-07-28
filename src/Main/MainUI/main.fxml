@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -193,7 +194,7 @@
    </AnchorPane>
    <AnchorPane fx:id="diagnostics" layoutX="107.0" layoutY="91.0" prefHeight="567.0" prefWidth="893.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="91.0">
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="567.0" prefWidth="122.0" style="-fx-background-color: #eeecec; -fx-border-color: #dadada;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <JFXButton alignment="CENTER" prefHeight="44.0" prefWidth="148.0" style="-fx-border-color: #dadada; -fx-border-width: 1 0 1 0;" text="Option 1">
+         <JFXButton alignment="CENTER" prefHeight="44.0" prefWidth="148.0" style="-fx-border-color: #dadada; -fx-border-width: 1 0 1 0;" text="Guides">
             <font>
                <Font name="Calibri Light" size="15.0" />
             </font>
@@ -225,7 +226,32 @@
          </JFXButton>
       </AnchorPane>
       <AnchorPane layoutX="147.0" prefHeight="37.0" prefWidth="746.0" style="-fx-border-color: #dadada;" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="0.0">
-         <Label layoutX="14.0" layoutY="10.0" text="Diagnostics" />
+         <Label layoutX="14.0" layoutY="10.0" text="Guides" />
+      </AnchorPane>
+      <AnchorPane fx:id="guides" layoutX="150.0" layoutY="37.0" prefHeight="530.0" prefWidth="743.0" style="-fx-background-color: white;">
+         <children>
+            <ListView layoutX="14.0" layoutY="14.0" prefHeight="463.0" prefWidth="713.0" />
+            <JFXButton alignment="CENTER" layoutX="643.0" layoutY="485.0" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Load" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="551.0" layoutY="485.0" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="459.0" layoutY="485.0" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="367.0" layoutY="485.0" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Add" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
       </AnchorPane>
    </AnchorPane>
 </AnchorPane>
