@@ -46,20 +46,28 @@ public class MainController  implements Initializable {
         closeIcon.setImage(new Image(new File("images/close.png").toURI().toString()));
     }
 
+    private void openPanel(AnchorPane panel) {
+        diagnostics.setVisible(false);
+        programming.setVisible(false);
+        connections.setVisible(false);
+        settings.setVisible(false);
+        panel.setVisible(true);
+    }
+
     public void openDiagnostics() {
-        diagnostics.toFront();
+        openPanel(diagnostics);
     }
 
     public void openProgramming() {
-        programming.toFront();
+        openPanel(programming);
     }
 
     public void openConnections() {
-        connections.toFront();
+        openPanel(connections);
     }
 
     public void openSettings() {
-        settings.toFront();
+        openPanel(settings);
     }
 
     public void maximise() {
