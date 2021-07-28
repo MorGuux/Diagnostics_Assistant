@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="vBulletin 3.8.11" />
+
+<meta name="bptitle" content="DIY: Register and Code a New Battery (comprehensive guide)" /><meta name="bpthreadid" content="1338304" /><meta name="bpforumid" content="261" /><meta name="bpthreadop" content="bNks334" /><meta name="bplastposter" content="houtan" /><meta name="bpfirstpostdateline" content="1482938022" /><meta name="bplastpostdateline" content="1626476011" /><meta name="bpcomments" content="98" /><meta name="bpsite" content="e82" />
+
+
+<meta property="og:title" content="DIY: Register and Code a New Battery (comprehensive guide)"/>
+<meta property="og:image" content="http://www.bimmerpost.com/bpfb.jpg" />
+
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css' />
+
+<meta name="keywords" content="agm, battery, code, register, replacement,  DIY: Register and Code a New Battery (comprehensive guide), bmw 3-series forum,e90,e91,e92,e93,BMW forum,e90 forum,bmw e90 forum,e90 chat,hamann,ac,schnitzer,hartge,breyton,rdsport,3 series,3-series,coupe,sedan,spy shot,spy pics,spy photos,spy photo,2006,unofficial,forum,bbs,discussion,bulletin board,aftermarket,forum,page,board,discussion,videos,schnitzer,hamann,aftermarket,wheels,exhaust,335i,335d,328xi" />
+<meta name="description" content="DIY: Register and Code a New Battery (comprehensive guide)" />
+
+
+<!-- IF statement for official threads -->
+
+
+	
+	<td class="alt1" id="td_post_21039782" style="border-right: 1px solid #dedede; border-left:0 !important; border-bottom:0 !important; position:relative;padding:35px 25px;">
+	
+
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				
+				<strong>DIY: Register and Code a New Battery (comprehensive guide)</strong>
+			</div>
+			<hr size="1" style="color:#dedede; background-color:#dedede" />
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_21039782" class="thePostItself">
+                
+                <b>Please like and share if this guide helps you out! Why pay a dealer or an indie $70-200+ to register your new battery? Continue reading if you&#8217;d like to know why it&#8217;s important and how you can get it done yourself!</b><br />
+ <br />
+<b>Q: </b><i>I have an older E90, does this apply to me?</i><br />
+<b>A: </b>This guide only applies to vehicles equipped with IBS (intelligent battery sensor). Registration and coding will not be successful on older vehicles that are equipped with basic power management systems.<br />
+<br />
+<b>Q:</b> <i>I replaced my battery and it works just fine, why all the fuss?</i><br />
+<b>A:</b> Disregarding the need to register and code for a new battery may result in improper charging. Over time, improper charging may have detrimental effects on the lifespan of your cars battery and the operation of the vehicles electronics.<br />
+ <br />
+<b>Q:</b> <i>Why do I need to register a new battery?</i><br />
+<b>A:</b> The short answer is that BMW designed the charging system with an algorithm that varies the rate of charge by the age and type of the battery installed. Registering a new battery resets the algorithm back to optimal charging voltage for the specified battery.<br />
+<br />
+The long answer: &quot;<i>The negative battery cable has an electronic control unit on the battery end of it called an intelligent battery sensor (IBS). The IBS measures the state of battery charge and sends this information to the ECU. The ECU uses this information to control how much charging voltage is needed from the alternator to support vehicle electricity needs. A battery deteriorates normally over time and depending upon service demands and driving profile. The IBS reads this and the ECU tells the charging system to increase voltage and amperage output incrementally as the battery matures. Therefore, at battery replacement time, if you don't tell the ECU it has a new battery it will overcharge the new battery causing it to wear out faster.<br />
+<br />
+The registration process takes place in the ECU, which is the main player in this system. Also, when the IBS sees that battery voltage is too low for normal vehicle operation it can start shutting down vehicle functions to conserve power while keeping the vehicle operational. This would be accompanied by a check control warning of excessive battery discharge.&#8221;<br />
+</i><br />
+<b>Q:</b> <i>Why do I need to &quot;code&quot; for a new battery?</i><br />
+<b>A:</b> The answer to this varies. You may not have to! That is, so long as you replace your old battery with an exact replacement. However, if you switch from a wet-cell type battery to an AGM type battery, or vice versa, you must code for the change.<br />
+<br />
+AGM and wet-cell batteries require a different rate of charge output from the alternator. Moving between these two types without coding can lead to over-charging or under-charging.<br />
+Also, batteries have a discharge rating called amp hours (ah). You must specify to the DME what the &#8220;ah&#8221; rating of your battery is so the car can run the proper charging algorithm.<br />
+<br />
+<b>Q: </b><i>I bought a lightweight battery, but the &#8220;ah&#8221; rating for my new battery is less than the lowest setting available in the CAS/NFRM module. Is this ok?</i><br />
+<b>A:</b> While not ideal, you can certainly use your new battery. Code your car for the setting that best matches your new battery. Most important is ensuring you&#8217;ve changed the settings from wet-cell to AGM type, if necessary. Consequently, you may negatively impact the life expectancy of the new battery by coding say an 80ah AGM charging map when your lightweight battery has a discharge capacity of only 18ah&#8230;<br />
+ <br />
+Personally, I am running a Deka/East Penn Sports Power ETX-30L Battery ($103.99). I used XS Power 586 Tall Brass Post Adaptors (M6 Thread). The Deka ETX-30L is rated 400CCA @ 28.6Ah(20HR)  and is a <b>21lb</b> AGM type battery. EDIT: I now run a PC925. Both these batteries crank the car strong, but I would not recommend ever using anything weaker!<br />
+<br />
+My 2011 E82 did not have a charging map listed in the CAS module for anything less than 80ah AGM. Therefore, this is what I chose when I coded my car (initially). There are people that have reported seeing options in the CAS module for as low as 40ah AGM. I believe updating to a newer CAS ZB software may provide more options. Or, maybe the additional options are only available in the CAS module for higher end models like 335is E92&#8217;s? I can only speculate as to why some people have more settings available than others.<br />
+<br />
+I ended up using Carly to code my battery again. Even though the lowest setting I found in the CAS module was 80ah AGM, Carly provided a 36ah AGM option. After using Carly to code my new battery, INPA does indeed confirm (see<b> appendix D</b>) the charging system is using a 36ah AGM charging map, or at least INPA recognizes that&#8217;s what Carly set it to.<br />
+<b><br />
+Q:</b> <i>What are BMWtools and where can I get them?</i><br />
+<b>A:</b> You can follow this guide: <a href="https://spool" target="_blank">https://spool</a> [DELETE THIS] street.com/forums/resources/bmw-coding-guide-setup.13/ This will provide you with a fully loaded virtual machine that can accomplish programming and diagnosing almost any issue with your car. Give credit where credit is do! <i>See <u>Appendix C</u> for a brief overview of various BMW software.</i><br />
+<b><br />
+Q:</b> <i>What cable do I need to connect to use BMWtools on my laptop/device?</i><br />
+<b>A: </b>I use a generic OBDII to USB (K+DCAN) cable I got off amazon, and it works fine ($23): <a href="https://www.amazon.com/gp/product/B008KZDDGA/ref=oh_aui_detailpage_o00_s00?ie=UTF8&amp;psc=1" target="_blank">https://www.amazon.com/gp/product/B0...?ie=UTF8&amp;psc=1</a>.<br />
+<br />
+You can combine the cable with an OTG adapter to use with portable devices. This will allow you to use apps such as Carly, Torque, Trackaddict, and Harry&#8217;s lap timer to name a few.<br />
+<br />
+<b>Q:</b> <i>Can I use Bluetooth?</i><br />
+<b>A:</b> I bought a generic ELM327 OBDII to Bluetooth adapter for use with apps like Carly, Torque, Trackaddict, and Harry&#8217;s lap time to name a few, and it works fine ($10.99): <a href="https://www.amazon.com/NorSway-Wireless-Bluetooth-Diagnostic-Compatible/dp/B01IAW3EAW/ref=sr_1_6?ie=UTF8&amp;qid=1481987264&amp;sr=8-6&amp;keywords=elm+adapter" target="_blank">https://www.amazon.com/NorSway-Wirel...ds=elm+adapter</a>.<br />
+<b><br />
+Q:</b> <i>I installed a battery with exact replacement specs (e.g. 80ah wet cell with 80ah wet cell). How can I register my new battery?</i><br />
+<b>A:</b> There are several methods that can be used to register a new battery. See options 1, 2, and 3 below:<br />
+<b><br />
+Q:</b> <i>I installed a battery of a different type and/or capacity (e.g. 80ah wet-cell with a 90ah wet-cell, or, 90ah wet-cell with a 40ah AGM). How can I code for the changes I made to the battery?</i><br />
+<b>A:</b> There are several methods that can be used to code for battery changes. See options 1, 2, 4, and 5, below:<br />
+<b><br />
+Overview:</b><br />
+This is the proper method to manually code for changes to the battery. Your vehicle order (VO) stores all the information regarding the various hardware your car came with from the factory. For example, if your car came with a wet-cell 70ah battery, your VO will read out with attribute -B070 (<b>see Appendix B</b>). Now, lets say you used option 4, above, to manually change the CAS module to reflect a new 70ah AGM battery. Your VO will still reflect the old battery of &#8211;B070 whereas you want your VO to actually reflect the currently installed battery which would be -A070 (<b>see Appendix B</b>).!<br />
+<br />
+If you go to the dealer, their software (Rheingold/ISTA-D and ISTA-P) will read your VO and recommend diagnostic/programming changes as if you still have that old battery installed. Basically, their software would overwrite the changes you made in option 4 and set all the coding back to the settings that reflect the old battery! There are two ECU's that store the vehicles VO: CAS and NFRM/FRM.<br />
+<br />
+Steps: Changing VO &amp; default ecu settings<br />
+1. Open NCSEXPER.exe<br />
+2. Select: File &gt; Load profile &gt; Select a profile that has manipulation enabled (profile name will vary or you may have to create one-- google this) &gt; Click OK<br />
+3. Press F1 (VIN/ZCS/FA)<br />
+4. Press F3 (CS/FA f. EC) &gt; Select E89 (chassis family for E9x and E8x vehicles) &gt; Click OK &gt; Select CAS &gt; Click OK<br />
+5. Press F6 (Back)<br />
+6. Press F1 (VIN/ZCS/FA)<br />
+7. Press F2 (Enter FA) &gt; Select E89 &gt; Click OK<br />
+8. A window labeled &#8220;Enter VIN&#8221; appears &gt; verify vin number is correct &gt; Click OK<br />
+9. A window labeled Enter FA appears &gt; scroll to find VO for old battery (e.g. -B090) &gt; highlight &#8211;B090 and press delete on keyboard<br />
+10. Enter the new battery type &#8211;A080 (per <b>Appendix B)</b> in the &#8220;Attribute&#8221; box &gt; Click Add &gt; Click OK<br />
+11. Press F6 (Back)<br />
+12. Press F4 (Process ECU) &gt; Select CAS &gt; Click OK<br />
+13. Press F2 (Change Job) &gt; Select FA Write &gt; Click OK<br />
+14. Press F3 (Execute Job)<br />
+15. Verify that the write is complete &#8220;Job Ended&#8221;<br />
+16. Press F1 (Change ECU) &gt; Select FRM/NFRM &gt; Click OK<br />
+17. Verify lines: get coded, FRM, JOBNAME = FA_Write<br />
+18. Press F3 (Execute Job)<br />
+19. Verify that the write is complete &#8220;Job Ended&#8221;<br />
+<br />
+The CAS and NFRM/FRM modules have now been updated with the new VO data and will now always default back to the new attributes you assigned to the VO!<br />
+ <br />
+It is important to now use NCSExpert to code the car based on the new VO settings. If you properly changed the VO, NCSExpert will automatically write the battery capacity and type settings to the various modules. This is what we did manually in option #4! This will also over-write any custom stuff you've done to the car (some cars let you make some changes via the indicator stalk), like, auto fold down windows, etc. You may have to re-code these features after resetting modules to factory.<br />
+<br />
+20. NCSEXPERT should still be open<br />
+21. Press F4 (Process ECU) &gt; Select CAS &gt; Click OK<br />
+22. Press F2 (Change Job) &gt; Select CODIERDATEN_LESEN (read ecu) &gt; Click OK<br />
+23. Press F3 (Execute Job)<br />
+24. Verify &#8220;Job Ended&#8221;<br />
+25. Leave NCSExper.exe open and navigate to the &#8220;<b>work</b>&#8221; folder where the ecu trace file was saved to ([X]:\NCSEXPER_64\WORK)<br />
+26. Open the generated FSW_PSW.TRC file with notepad<br />
+27. Select: File&gt;save as&gt;FSW_PSW.MAN (be sure to select &#8220;save as type&#8221; to all files so that it will accept the &#8220;.MAN&#8221; extension. If you fail to do so it will just save it as a text file .TXT)<br />
+28. CLEAR THE FILE (CTRL + A &gt; back*******<br />
+29. Select: File &gt;Save<br />
+30. Go back to NCS Expert &gt; Press F2 (Change Job) &gt; Select SG_codieren (Write ecu) &gt; Click OK<br />
+31. Press F3 (Execute Job)<br />
+32. Repeat steps 21 through 31 for the NFRM/FRM module. The CAS And NFRM are now defaulted back to the newly assigned $VO attributes (battery will be coded to new VO setting). <br />
+<br />
+<b><br />
+Appendix A:</b><br />
+MSV70,MSV 70.0 for N52 (NG6),<br />
+MSV80,MSV 80.0 for N52KP (NG6),<br />
+MSD80,MSD 80.0 for N43 N53 &amp; N54 with EWS4/CAS,<br />
+Mevd172KW, Mevd 172 for N55 (Older N55&#8217;s up to late 2011 production)<br />
+Mevd176k, Mevd 176k for N55 (late 2011 production date or newer)<br />
+MSS60,MSS60 for S65 (M3),<br />
+<b><br />
+Appendix B:</b><br />
+&quot;B&quot; represents wet-cell (lead acid), while &quot;A&quot; represents AGM (glass mat) in the VO.<br />
+E B046  BATT_46AH   //46 Ah-Batterie<br />
+E B055  BATT_55AH   //55 Ah-Batterie<br />
+E B070   BATT_70AH   //70 Ah-Batterie<br />
+E B080  BATT_80AH    //80 Ah-Batterie<br />
+E B090  BATT_90AH   //90 Ah-Batterie<br />
+E A070  BATT_AGM_70AH    //70 Ah-AGM Batterie<br />
+E A080  BATT_AGM_80AH   //80 Ah-AGM Batterie<br />
+E A090  BATT_AGM_90AH   //90 Ah-AGM Batterie<br />
+<b><br />
+Appendix C:</b><ul><li>ISTA/D (aka Rheingold) is the current dealership diagnostic software for all Exx and Fxx cars.<ul><li>ISTA/D is the replacement for older dealership &quot;DIS&quot; diagnostic software.</li>
+</ul></li>
+<li>ISTA/P is the current dealership programming software for all Exx and Fxx cars.<ul><li>ISTA/P is the replacement for the older dealership programming software &#8220;SSS.&#8221;</li>
+</ul></li>
+<li>ISTA/P &amp; ISTA/D are designed to be used with an ICOM Interface, and with full ICOM-A-B-C, you can connect to older cars. The ICOM &quot;C&quot; Connection is for the older BMW ADS 20-pin round &quot;Pacman&quot; connector in the Engine Bay. You can find versions of ISTA/D with an ICOM Emulator built-in that allows you to use it with an ENET Interface for Fxx cars and a DCAN Interface for Exx cars.</li>
+<li>INPA (interpreter for test procedures) is an older factory floor diagnostic software, designed to run test procedures. While INPA can be set to an English User Interface, most of the Test Procedures (scripts), which can be difficult to find, are in German.</li>
+<li>WinKFP is for flashing/reprogramming modules</li>
+<li>NCSexpert is for coding, it can be used to set up options and enable things</li>
+<li>Tool32 is like a DOS cmd box for the modules, it's text based and can it's able to ask the ECUs various questions and show the answers (like status, programming data etc)</li>
+</ul><b><br />
+Appendix D:<br />
+<br />
+Verify changes:</b><br />
+To see the current rate your battery is charging at, open the INPA program&gt;&gt; E90&gt;&gt;ENGINE&gt;&gt;MSD80&gt;&gt; Status(F5)&gt;&gt;PM-IBS&gt;&gt;<b>PM FIELD 2</b> . Under the PM Field option look at the ah reading registered, to see what it's set at to charge your battery at present. If it's incorrect, you need to re-try the options outlined above. Once you have done this, re-register your battery using the Tool32 program. Then go back into INPA and check the PM Field 2 again to see if the new ah reading has been registered.<br />
+<b><br />
+Appendix E:</b><br />
+KLASSE_BATTERIE         BATTERY TYPE<br />
+wert_00                        value 00<br />
+80ah                            80 ampere-hours<br />
+90ah                            90 ampere-hours<br />
+110ah                          110 ampere-hours<br />
+70ah                            70 ampere-hours<br />
+55ah                            55 ampere-hours<br />
+46ah                            46 ampere-hours<br />
+70ah_agm                    70 ampere-hours (agm)<br />
+90ah_agm                    90 ampere-hours (agm)<br />
+60ah_agm                    60 ampere-hours (agm)<br />
+80ah_agm                    80 ampere-hours (agm)<br />
+
+</html>
