@@ -1,33 +1,26 @@
 package Main;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Main extends Application {
 
-    public static void main(String[] args) throws SQLException {
-
-        //region Database Connection
-        DatabaseManager.openConnection();
-        ArrayList<DatabaseClasses.Guide> guides = DatabaseManager.getGuides();
-
-        assert guides != null;
-        for (DatabaseClasses.Guide guide : guides) {
-            System.out.print(guide.ID + ", ");
-            System.out.print(guide.Title + ", ");
-            System.out.print(guide.Description + ", ");
-            System.out.print(guide.Path + ", ");
-            System.out.print(guide.Type + "\n");
-        }
-        //endregion
-
+    public static void main(String[] args) throws SQLException, IOException
+    {
         launch(args);
     }
 

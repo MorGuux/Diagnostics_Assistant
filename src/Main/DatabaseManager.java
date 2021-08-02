@@ -57,22 +57,4 @@ public class DatabaseManager {
         _connection.commit();
     }
 
-    public static ArrayList<DatabaseClasses.Guide> getGuides() throws SQLException {
-        ResultSet dbGuides = get("SELECT * FROM Guides");
-        if (dbGuides != null) {
-            ArrayList<DatabaseClasses.Guide> guides = new ArrayList<>();
-            while (dbGuides.next()) {
-                DatabaseClasses.Guide guide = new DatabaseClasses.Guide();
-                guide.ID = dbGuides.getInt("ID");
-                guide.Title = dbGuides.getString("Title");
-                guide.Description = dbGuides.getString("Description");
-                guide.Path = dbGuides.getString("Path");
-                guide.Type = dbGuides.getInt("Type");
-                guides.add(guide);
-            }
-            return guides;
-        }
-        return null;
-    }
-
 }
