@@ -61,7 +61,6 @@ public class MainController  implements Initializable {
 
         titleCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Title"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Description"));
-        pathCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Path"));
 
         try
         {
