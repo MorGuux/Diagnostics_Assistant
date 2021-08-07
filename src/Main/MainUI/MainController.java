@@ -4,6 +4,7 @@ import Main.DatabaseManager;
 import Main.Functions;
 import Main.Guide.GuideViewerController;
 import Main.Main;
+import com.jfoenix.controls.JFXButton;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Main.Guide.Guide;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -65,16 +67,20 @@ public class MainController implements Initializable {
     @FXML
     private ImageView closeIcon;
     @FXML
+    public JFXButton edit;
+    @FXML
+    public JFXButton delete;
+    @FXML
     public TableView<Guide> diagGuides;
     @FXML
     private TableColumn<Guide, String> titleCol;
     @FXML
     private TableColumn<Guide, String> descriptionCol;
-    @FXML
-    private TableColumn<Guide, String> pathCol;
+
     public Guide getSelectedGuide() {
         return this.diagGuides.getSelectionModel().getSelectedItem();
     }
+
     private ObservableList<Guide> guides;
 
     @Override
@@ -102,6 +108,13 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
 
+        edit.disableProperty().bind(
+                Bindings.isNull(diagGuides.getSelectionModel().selectedItemProperty())
+        );
+        delete.disableProperty().bind(
+                Bindings.isNull(diagGuides.getSelectionModel().selectedItemProperty())
+        );
+
         guides = FXCollections.observableArrayList(Guide.getGuides());
         diagGuides.setItems(guides);
         diagGuides.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -117,7 +130,17 @@ public class MainController implements Initializable {
                 contextMenu.getItems().addAll(open, edit, delete);
                 contextMenu.show(pane, MouseEvent.getScreenX(), MouseEvent.getScreenY());
 
+                open.disableProperty().bind(
+                        Bindings.isNull(diagGuides.getSelectionModel().selectedItemProperty())
+                );
+                edit.disableProperty().bind(
+                        Bindings.isNull(diagGuides.getSelectionModel().selectedItemProperty())
+                );
+                delete.disableProperty().bind(
+                        Bindings.isNull(diagGuides.getSelectionModel().selectedItemProperty())
+                );
                 open.setOnAction(e -> {
+
                     try {
                         diagGuides.getSelectionModel().getSelectedItem().openInDefaultProgram();
                     } catch (IOException ex) {
@@ -146,6 +169,7 @@ public class MainController implements Initializable {
 
         Parent guideWindow = null;
         try {
+            assert loader != null;
             guideWindow = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
@@ -154,6 +178,7 @@ public class MainController implements Initializable {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(Main.getPrimaryStage());
+        assert guideWindow != null;
         dialog.setScene(new Scene(guideWindow));
         dialog.initStyle(StageStyle.UNDECORATED);
 
