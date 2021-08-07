@@ -67,11 +67,19 @@ public class Guide {
         return null;
     }
 
+    public static boolean deleteGuide(Guide guide) {
+        try {
+            DatabaseManager.delete("DELETE FROM Guides WHERE ID = '" + guide.ID + "'");
+        } catch (SQLException ex) {
+            return false;
+        }
+        return true;
+    }
+
     public void openInDefaultProgram() throws IOException {
         File file = new File(this.getPath());
         Desktop.getDesktop().open(file);
     }
-
 
     public int getID()
     {

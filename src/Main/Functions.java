@@ -11,6 +11,8 @@ import javafx.stage.StageStyle;
 
 public class Functions {
 
+    public static AnchorPane mainPane;
+
     public static void drag(AnchorPane window) {
         Stage thisWindow = (Stage) window.getScene().getWindow();
         window.setOnMousePressed(pressEvent -> window.setOnMouseDragged(dragEvent -> {

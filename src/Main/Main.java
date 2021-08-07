@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
@@ -28,7 +29,6 @@ public class Main extends Application {
         } catch (Exception ex) {
             return null;
         }
-
     }
 
     @Override
@@ -36,11 +36,12 @@ public class Main extends Application {
         Parent newWindow = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainUI/main.fxml")));
         window.initStyle(StageStyle.UNDECORATED);
         window.setScene(new Scene(newWindow, 1000, 700));
+
         ResizeHelper.addResizeListener(window);
         window.setMinWidth(1000);
         window.setMinHeight(700);
         window.show();
-        this.primaryStage = window;
+        primaryStage = window;
     }
 
 }

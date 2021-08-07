@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
-
 public class GuideViewerController implements Initializable {
 
     @FXML
@@ -69,6 +68,7 @@ public class GuideViewerController implements Initializable {
 
     public void cancel() {
         Functions.close(lblGuideTitle);
+        Functions.mainPane.setEffect(null);
     }
 
 }

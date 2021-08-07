@@ -3,6 +3,7 @@ package Main.MainUI;
 import Main.DatabaseManager;
 import Main.Functions;
 import Main.Guide.GuideViewerController;
+import Main.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -19,10 +20,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -69,13 +73,14 @@ public class MainController implements Initializable {
     private TableColumn<Guide, String> descriptionCol;
     @FXML
     private TableColumn<Guide, String> pathCol;
-
     public Guide getSelectedGuide() {
         return this.diagGuides.getSelectionModel().getSelectedItem();
     }
+    private ObservableList<Guide> guides;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Functions.mainPane = window;
         version.setText("v1.0.0");
         connected.setText("Connected");
 
@@ -89,18 +94,17 @@ public class MainController implements Initializable {
         maximiseIcon.setImage(new Image(new File("images/maximise.png").toURI().toString()));
         closeIcon.setImage(new Image(new File("images/close.png").toURI().toString()));
 
-        titleCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Title"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Description"));
+        titleCol.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<>("Description"));
 
         try {
             DatabaseManager.openConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        ObservableList<Guide> guides = FXCollections.observableArrayList(Guide.getGuides());
 
+        guides = FXCollections.observableArrayList(Guide.getGuides());
         diagGuides.setItems(guides);
-
         diagGuides.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         diagGuides.setOnMouseClicked(MouseEvent -> {
             if (MouseEvent.getButton().equals(MouseButton.SECONDARY)) {
@@ -129,27 +133,40 @@ public class MainController implements Initializable {
     }
 
     public void loadGuide() {
-        FXMLLoader loader = Main.Main.getFXML("Guide/guideViewer.fxml");
+        FXMLLoader loader = Main.getFXML("Guide/guideViewer.fxml");
 
-        Parent window = null;
+        Parent guideWindow = null;
         try {
-            window = loader.load();
+            guideWindow = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initOwner(Main.Main.getPrimaryStage());
-        dialog.setScene(new Scene(window));
+        dialog.initOwner(Main.getPrimaryStage());
+        dialog.setScene(new Scene(guideWindow));
         dialog.initStyle(StageStyle.UNDECORATED);
 
-        if (diagGuides.getSelectionModel().getSelectedItem() != null) {
-            dialog.setTitle(diagGuides.getSelectionModel().getSelectedItem().getTitle());
+        if (getSelectedGuide() != null) {
+            dialog.setTitle(getSelectedGuide().getTitle());
             GuideViewerController guideViewerController = loader.getController();
-            guideViewerController.setSelectedGuide(diagGuides.getSelectionModel().getSelectedItem());
+            guideViewerController.setSelectedGuide(getSelectedGuide());
         }
         dialog.show();
+
+        ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
+        GaussianBlur blur = new GaussianBlur(4);
+        adj.setInput(blur);
+        window.setEffect(adj);
+    }
+
+    public void delete() {
+        if (getSelectedGuide() != null) {
+            if (Guide.deleteGuide(getSelectedGuide())) {
+                guides.remove(getSelectedGuide());
+            }
+        }
     }
 
     private void openPanel(AnchorPane panel) {
