@@ -26,7 +26,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -110,13 +109,23 @@ public class MainController implements Initializable {
             if (MouseEvent.getButton().equals(MouseButton.SECONDARY)) {
                 final ContextMenu contextMenu = new ContextMenu();
                 final AnchorPane pane = new AnchorPane();
-                MenuItem add = new MenuItem("Add guide");
+                MenuItem open = new MenuItem("Open guide");
                 MenuItem edit = new MenuItem("Edit guide");
                 MenuItem delete = new MenuItem("Delete guide");
 
                 diagGuides.setContextMenu(contextMenu);
-                contextMenu.getItems().addAll(add, edit, delete);
+                contextMenu.getItems().addAll(open, edit, delete);
                 contextMenu.show(pane, MouseEvent.getScreenX(), MouseEvent.getScreenY());
+
+                open.setOnAction(e -> {
+                    try {
+                        diagGuides.getSelectionModel().getSelectedItem().openInDefaultProgram();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                });
+                edit.setOnAction(e -> loadGuide());
+                delete.setOnAction(e -> delete());
             } else if (MouseEvent.getButton().equals(MouseButton.PRIMARY) && MouseEvent.getClickCount() == 2) {
                 try {
                     diagGuides.getSelectionModel().getSelectedItem().openInDefaultProgram();
@@ -154,19 +163,29 @@ public class MainController implements Initializable {
             guideViewerController.setSelectedGuide(getSelectedGuide());
         }
         dialog.show();
+        blur();
+    }
 
-        ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
-        GaussianBlur blur = new GaussianBlur(4);
+    private void blur() {
+        ColorAdjust adj = new ColorAdjust(0, 0, 0, 0);
+        GaussianBlur blur = new GaussianBlur(3);
         adj.setInput(blur);
         window.setEffect(adj);
     }
 
     public void delete() {
-        if (getSelectedGuide() != null) {
-            if (Guide.deleteGuide(getSelectedGuide())) {
-                guides.remove(getSelectedGuide());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this guide?", ButtonType.YES, ButtonType.NO);
+        blur();
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES) {
+            if (getSelectedGuide() != null) {
+                if (Guide.deleteGuide(getSelectedGuide())) {
+                    guides.remove(getSelectedGuide());
+                }
             }
         }
+        window.setEffect(null);
     }
 
     private void openPanel(AnchorPane panel) {
