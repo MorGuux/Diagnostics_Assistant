@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -41,7 +42,7 @@ public class Functions {
         thisWindow.setIconified(true);
     }
 
-    public static void close(AnchorPane window) {
+    public static void close(TitledPane window) {
         Stage thisWindow = (Stage) window.getScene().getWindow();
         thisWindow.close();
     }

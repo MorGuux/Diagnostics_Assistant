@@ -2,15 +2,14 @@ package Main.MainUI;
 
 import Main.DatabaseManager;
 import Main.Functions;
+import Main.Guide.GuideViewerController;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-import Main.Guide;
+import Main.Guide.Guide;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,34 +23,52 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class MainController  implements Initializable {
+public class MainController implements Initializable {
 
-    @FXML private AnchorPane window;
-    @FXML private AnchorPane diagnostics;
-    @FXML private AnchorPane programming;
-    @FXML private AnchorPane connections;
-    @FXML private AnchorPane settings;
-    @FXML private Label version;
-    @FXML private Label connected;
-    @FXML private ImageView diagnosticsIcon;
-    @FXML private ImageView programmingIcon;
-    @FXML private ImageView connectionsIcon;
-    @FXML private ImageView settingsIcon;
-    @FXML private ImageView logo;
-    @FXML private ImageView minimizedLogo;
-    @FXML private ImageView maximiseIcon;
-    @FXML private ImageView minimizeIcon;
-    @FXML private ImageView closeIcon;
-    @FXML public TableView<Guide> diagGuides;
-    @FXML private TableColumn<Guide, String> titleCol;
-    @FXML private TableColumn<Guide, String> descriptionCol;
-    @FXML private TableColumn<Guide, String> pathCol;
+    @FXML
+    private AnchorPane window;
+    @FXML
+    private AnchorPane diagnostics;
+    @FXML
+    private AnchorPane programming;
+    @FXML
+    private AnchorPane connections;
+    @FXML
+    private AnchorPane settings;
+    @FXML
+    private Label version;
+    @FXML
+    private Label connected;
+    @FXML
+    private ImageView diagnosticsIcon;
+    @FXML
+    private ImageView programmingIcon;
+    @FXML
+    private ImageView connectionsIcon;
+    @FXML
+    private ImageView settingsIcon;
+    @FXML
+    private ImageView logo;
+    @FXML
+    private ImageView minimizedLogo;
+    @FXML
+    private ImageView maximiseIcon;
+    @FXML
+    private ImageView minimizeIcon;
+    @FXML
+    private ImageView closeIcon;
+    @FXML
+    public TableView<Guide> diagGuides;
+    @FXML
+    private TableColumn<Guide, String> titleCol;
+    @FXML
+    private TableColumn<Guide, String> descriptionCol;
+    @FXML
+    private TableColumn<Guide, String> pathCol;
 
     public Guide getSelectedGuide() {
         return this.diagGuides.getSelectionModel().getSelectedItem();
@@ -75,12 +92,9 @@ public class MainController  implements Initializable {
         titleCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Title"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Guide, String>("Description"));
 
-        try
-        {
+        try {
             DatabaseManager.openConnection();
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         ObservableList<Guide> guides = FXCollections.observableArrayList(Guide.getGuides());
@@ -92,41 +106,50 @@ public class MainController  implements Initializable {
             if (MouseEvent.getButton().equals(MouseButton.SECONDARY)) {
                 final ContextMenu contextMenu = new ContextMenu();
                 final AnchorPane pane = new AnchorPane();
-                MenuItem open = new MenuItem("Open guide");
+                MenuItem add = new MenuItem("Add guide");
+                MenuItem edit = new MenuItem("Edit guide");
+                MenuItem delete = new MenuItem("Delete guide");
 
                 diagGuides.setContextMenu(contextMenu);
-                contextMenu.getItems().addAll(open);
+                contextMenu.getItems().addAll(add, edit, delete);
                 contextMenu.show(pane, MouseEvent.getScreenX(), MouseEvent.getScreenY());
-
-                open.setOnAction(actionEvent -> {
-                    try {
-                        diagGuides.getSelectionModel().getSelectedItem().openInDefaultProgram();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
             } else if (MouseEvent.getButton().equals(MouseButton.PRIMARY) && MouseEvent.getClickCount() == 2) {
-                FXMLLoader loader = Main.Main.getFXML("MainUI/guideViewer.fxml");
-                Parent window = null;
-                try
-                {
-                    window = loader.load();
-                }
-                catch (IOException e)
-                {
+                try {
+                    diagGuides.getSelectionModel().getSelectedItem().openInDefaultProgram();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
-                final Stage dialog = new Stage();
-                dialog.initModality(Modality.APPLICATION_MODAL);
-                dialog.initOwner(Main.Main.getPrimaryStage());
-                dialog.setTitle(diagGuides.getSelectionModel().getSelectedItem().getTitle());
-                dialog.setScene(new Scene(window));
-                dialog.initStyle(StageStyle.UNDECORATED);
-                GuideViewerController guideViewerController = loader.getController();
-                guideViewerController.setSelectedGuide(diagGuides.getSelectionModel().getSelectedItem());
-                dialog.show();
             }
         });
+    }
+
+    public void addGuide() {
+        diagGuides.getSelectionModel().clearSelection();
+        loadGuide();
+    }
+
+    public void loadGuide() {
+        FXMLLoader loader = Main.Main.getFXML("Guide/guideViewer.fxml");
+
+        Parent window = null;
+        try {
+            window = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(Main.Main.getPrimaryStage());
+        dialog.setScene(new Scene(window));
+        dialog.initStyle(StageStyle.UNDECORATED);
+
+        if (diagGuides.getSelectionModel().getSelectedItem() != null) {
+            dialog.setTitle(diagGuides.getSelectionModel().getSelectedItem().getTitle());
+            GuideViewerController guideViewerController = loader.getController();
+            guideViewerController.setSelectedGuide(diagGuides.getSelectionModel().getSelectedItem());
+        }
+        dialog.show();
     }
 
     private void openPanel(AnchorPane panel) {

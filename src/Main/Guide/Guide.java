@@ -1,5 +1,6 @@
-package Main;
+package Main.Guide;
 
+import Main.DatabaseManager;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.awt.*;

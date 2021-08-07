@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane fx:id="lblGuideTitle" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="lblGuideTitle" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainUI.GuideViewerController">
+<TitledPane fx:id="lblGuideTitle" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="lblGuideTitle" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Guide.GuideViewerController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -18,21 +18,26 @@
                   <Font name="Calibri Light" size="13.0" />
                </font>
             </TextArea>
-            <JFXButton alignment="CENTER" layoutX="699.0" layoutY="530.0" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #2d78c9;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+            <JFXButton alignment="CENTER" layoutX="603.0" layoutY="529.0" onAction="#save" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #2d78c9;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="100.0">
                <font>
                   <Font name="Calibri Light" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="CENTER" layoutX="14.0" layoutY="529.0" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #2d78c9;" text="Browse" textFill="WHITE">
+            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="529.0" onAction="#browse" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #2d78c9;" text="Browse" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
                <font>
                   <Font name="Calibri Light" size="15.0" />
                </font>
             </JFXButton>
-            <Label fx:id="lblPath" layoutX="109.0" layoutY="535.0" prefHeight="17.0" prefWidth="500.0" text="Path">
+            <Label fx:id="lblPath" layoutX="110.0" layoutY="535.0" prefHeight="19.0" prefWidth="488.0">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
+            <JFXButton alignment="CENTER" layoutX="698.0" layoutY="529.0" onAction="#cancel" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #2d78c9;" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
   </content>
 </TitledPane>

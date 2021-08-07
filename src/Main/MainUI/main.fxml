@@ -245,12 +245,12 @@
                         <Font name="Calibri Light" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" layoutX="547.0" layoutY="485.0" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Edit" textFill="WHITE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="112.0">
+                  <JFXButton alignment="CENTER" layoutX="547.0" layoutY="485.0" onAction="#loadGuide" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Edit" textFill="WHITE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="112.0">
                      <font>
                         <Font name="Calibri Light" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" layoutX="455.0" layoutY="485.0" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Add" textFill="WHITE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="204.0">
+                  <JFXButton alignment="CENTER" layoutX="455.0" layoutY="485.0" onAction="#addGuide" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #2d78c9;" text="Add" textFill="WHITE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="204.0">
                      <font>
                         <Font name="Calibri Light" size="15.0" />
                      </font>

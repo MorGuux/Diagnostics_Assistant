@@ -1,28 +1,20 @@
 package Main;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Main extends Application {
 
     private static Stage primaryStage;
 
-    public static void main(String[] args) throws SQLException, IOException
-    {
+    public static void main(String[] args) throws SQLException, IOException {
         launch(args);
     }
 
@@ -30,13 +22,10 @@ public class Main extends Application {
         return primaryStage;
     }
 
-    public static FXMLLoader getFXML(String path)
-    {
-        try
-        {
+    public static FXMLLoader getFXML(String path) {
+        try {
             return new FXMLLoader(Main.class.getResource(path));
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             return null;
         }
 
