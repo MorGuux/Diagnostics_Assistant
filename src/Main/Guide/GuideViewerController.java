@@ -13,10 +13,14 @@ import javafx.stage.FileChooser;
 
 public class GuideViewerController implements Initializable {
 
-    @FXML private TitledPane lblGuideTitle;
-    @FXML private TextField lblTitle;
-    @FXML private TextArea lblDescription;
-    @FXML private Label lblPath;
+    @FXML
+    private TitledPane lblGuideTitle;
+    @FXML
+    private TextField lblTitle;
+    @FXML
+    private TextArea lblDescription;
+    @FXML
+    private Label lblPath;
     private Guide selectedGuide;
 
     @Override
@@ -37,16 +41,29 @@ public class GuideViewerController implements Initializable {
         File result = fileChooser.showOpenDialog(null);
 
         if (result != null) {
-            lblPath.setText(result.getAbsolutePath());
-            selectedGuide.setPath(result.getAbsolutePath());
+            if (selectedGuide == null) {
+                lblPath.setText(result.getAbsolutePath());
+            } else {
+                selectedGuide.setPath(result.getAbsolutePath());
+            }
         }
     }
 
     public void save() {
-        if (selectedGuide == null) {
-            //adding
-        } else {
-            //editing
+        if (!lblTitle.getText().equals("") && !lblDescription.getText().equals("") && !lblPath.getText().equals("")) {
+            String title = lblTitle.getText();
+            String description = lblDescription.getText();
+            String path = lblPath.getText();
+
+            if (selectedGuide == null) {
+                Guide guide = new Guide(title, description, path);
+                System.out.println("Saved guide");
+            } else {
+                selectedGuide.setTitle(title);
+                selectedGuide.setDescription(description);
+                selectedGuide.setPath(path);
+                System.out.println("edited guide");
+            }
         }
     }
 
