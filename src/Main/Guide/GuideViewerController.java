@@ -3,6 +3,7 @@ package Main.Guide;
 import Main.Functions;
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -48,7 +49,8 @@ public class GuideViewerController implements Initializable {
         }
     }
 
-    public void save() {
+    public void save() throws SQLException
+    {
         if (!lblTitle.getText().equals("") && !lblDescription.getText().equals("") && !lblPath.getText().equals("")) {
             String title = lblTitle.getText();
             String description = lblDescription.getText();
@@ -56,6 +58,7 @@ public class GuideViewerController implements Initializable {
 
             if (selectedGuide == null) {
                 Guide guide = new Guide(title, description, path);
+                Guide.addNewGuide(guide);
                 System.out.println("Saved guide");
             } else {
                 selectedGuide.setTitle(title);

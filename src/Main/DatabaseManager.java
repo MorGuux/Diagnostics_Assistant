@@ -1,10 +1,6 @@
 package Main;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseManager {
@@ -36,25 +32,43 @@ public class DatabaseManager {
         return stmt.executeQuery(query);
     }
 
-    public static void insert(String query) throws SQLException {
-        Statement stmt = _connection.createStatement();
-        stmt.executeUpdate(query);
+    public static void insert(String tableName, String[]... columns) throws SQLException {
+        StringBuilder query = new StringBuilder("INSERT INTO " + tableName + " ('" + columns[0][0]);
+        for (int i = 1; i < columns.length; i++) {
+            query.append("', '" + columns[i][0]);
+        }
+        query.append("') VALUES (?");
+        for (int i = 1; i < columns.length; i++) {
+            query.append(", ?");
+        }
+        query.append(")");
+
+        System.out.println(query);
+
+        PreparedStatement stmt = _connection.prepareStatement(query.toString());
+
+        int index = 1;
+        for (String[] column : columns) {
+            stmt.setString(index, column[1]);
+            index++;
+        }
+
+        System.out.println(stmt);
+
+        stmt.executeUpdate();
         stmt.close();
-        _connection.commit();
     }
 
     public static void update(String query) throws SQLException {
         Statement stmt = _connection.createStatement();
         stmt.executeUpdate(query);
         stmt.close();
-        _connection.commit();
     }
 
     public static void delete(String query) throws SQLException {
         Statement stmt = _connection.createStatement();
         stmt.executeUpdate(query);
         stmt.close();
-        _connection.commit();
     }
 
 }

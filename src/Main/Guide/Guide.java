@@ -67,6 +67,14 @@ public class Guide {
         return null;
     }
 
+    public static void addNewGuide(Guide guide) throws SQLException
+    {
+        DatabaseManager.insert("Guides",
+                new String[]{"Title", guide.getTitle()},
+                new String[]{"Description", guide.getDescription()},
+                new String[]{"Path", guide.getPath()});
+    }
+
     public static boolean deleteGuide(Guide guide) {
         try {
             DatabaseManager.delete("DELETE FROM Guides WHERE ID = '" + guide.ID + "'");
