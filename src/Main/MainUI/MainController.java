@@ -7,19 +7,28 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import Main.Guide;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class MainController  implements Initializable {
 
@@ -39,10 +48,14 @@ public class MainController  implements Initializable {
     @FXML private ImageView maximiseIcon;
     @FXML private ImageView minimizeIcon;
     @FXML private ImageView closeIcon;
-    @FXML private TableView<Guide> diagGuides;
+    @FXML public TableView<Guide> diagGuides;
     @FXML private TableColumn<Guide, String> titleCol;
     @FXML private TableColumn<Guide, String> descriptionCol;
     @FXML private TableColumn<Guide, String> pathCol;
+
+    public Guide getSelectedGuide() {
+        return this.diagGuides.getSelectionModel().getSelectedItem();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -92,6 +105,26 @@ public class MainController  implements Initializable {
                         e.printStackTrace();
                     }
                 });
+            } else if (MouseEvent.getButton().equals(MouseButton.PRIMARY) && MouseEvent.getClickCount() == 2) {
+                FXMLLoader loader = Main.Main.getFXML("MainUI/guideViewer.fxml");
+                Parent window = null;
+                try
+                {
+                    window = loader.load();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(Main.Main.getPrimaryStage());
+                dialog.setTitle(diagGuides.getSelectionModel().getSelectedItem().getTitle());
+                dialog.setScene(new Scene(window));
+                dialog.initStyle(StageStyle.UNDECORATED);
+                GuideViewerController guideViewerController = loader.getController();
+                guideViewerController.setSelectedGuide(diagGuides.getSelectionModel().getSelectedItem());
+                dialog.show();
             }
         });
     }
